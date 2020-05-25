@@ -1,0 +1,23 @@
+{
+  "name": "profile-generator",
+  "version": "1.0.0",
+  "description": "This program will run through a command line using node, and will prompt the user for a color, becoming the background color for the cards. A PDF file will then be generated which will contain info about a github profile.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lupemls/profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lupemls/profile-generator/issues"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "inquirer": "^7.1.0",
+    "puppeteer": "^3.1.0"
+  }
+}
