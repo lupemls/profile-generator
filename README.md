@@ -8,3 +8,6 @@ Usage:
 Run "node index" to run the app and enter your github username and select a color. Once answered, the app will access github data from their api through axios and the pdf will begin generating. Open up the pdf once created and you have your generated portfolio!
 
 The app will not generate a new pdf file if the previous one is open in a window. To generate a new pdf, close the previously generated one in your browser.
+
+![](https://giphy.com/gifs/d7ZgNcfWtJHdbj5txD/html5)
+![](assets\images\generated-profile.png)
