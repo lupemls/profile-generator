@@ -1,19 +1,28 @@
-const inquirer = require('inquirer');
-const axios = require('axios');
-const puppeteer = require('puppeteer');
+const inquirer = require("inquirer");
+const axios = require("axios");
+const puppeteer = require("puppeteer");
 
 const init = () => {
   inquirer
     .prompt([
       {
-        message: 'What is your github username?',
-        name: 'username',
+        message: "What is your github username?",
+        name: "username",
       },
       {
-        type: 'list',
-        message: 'What color do you like most?',
-        name: 'color',
-        choices: ['green', 'blue', 'pink', 'red', 'orange', 'yellow', 'purple', 'cornflowerblue'],
+        type: "list",
+        message: "What color do you like most?",
+        name: "color",
+        choices: [
+          "green",
+          "blue",
+          "pink",
+          "red",
+          "orange",
+          "yellow",
+          "purple",
+          "cornflowerblue",
+        ],
       },
     ])
     .then((res) => {
@@ -38,18 +47,18 @@ const init = () => {
           response.data.forEach((repo) => {
             stars += repo.watchers_count;
           });
-          userData.stars = stars;          
-          
-          generateHTML(userData);
+          userData.stars = stars;
 
+          generateHTML(userData);
         });
       });
     });
-}
+};
 init();
 
 async function generateHTML(userData) {
-    try {const browser = await puppeteer.launch();
+  try {
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     await page.setContent(`<!DOCTYPE html>
@@ -142,17 +151,17 @@ async function generateHTML(userData) {
     </section>
 </body>
 </html>`);
-    await page.emulateMedia('screen');
+    await page.emulateMedia("screen");
     await page.pdf({
-        path: `profile.pdf`,
-        format: 'A4',
-        printBackground: true
-    })
+      path: `profile.pdf`,
+      format: "A4",
+      printBackground: true,
+    });
     console.log("PDF Created");
     await browser.close();
     process.exit();
-    } catch (err) {
-        console.log(err)
+  } catch (err) {
+    console.log(err);
     throw err;
-    }
+  }
 }
